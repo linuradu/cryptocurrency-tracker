@@ -1,12 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 import {CryptoCurrencyService} from '../../services/cryptocurrency/cryptocurrency.service';
-import {MatTableDataSource} from "@angular/material/table";
-import {SelectionModel} from "@angular/cdk/collections";
-import {MatPaginator} from "@angular/material/paginator";
-import {UserService} from "../../services/user/user.service";
-import {Router} from "@angular/router";
-import {Market} from "../../models/market";
+import {MatTableDataSource} from '@angular/material/table';
+import {SelectionModel} from '@angular/cdk/collections';
+import {MatPaginator} from '@angular/material/paginator';
+import {UserService} from '../../services/user/user.service';
+import {Router} from '@angular/router';
+import {Market} from '../../models/market';
 
 @Component({
   selector: 'favorites',
