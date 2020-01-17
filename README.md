@@ -32,5 +32,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## 
+## Application requirement
+Build a simple cryptocurrency price tracker.
+The pages of the app and their functionality are outlined below:
+
+Homepage:
+- On first visit: The user is presented with a searchable list of cryptocurrencies. These can be selected as favourites.
+- Subsequent visits: The user is shown pricing information for each of the
+	cryptocurrencies marked as favourites.
+
+Favourites page:
+- On subsequent visits to the app, the user can edit favourites.
 
