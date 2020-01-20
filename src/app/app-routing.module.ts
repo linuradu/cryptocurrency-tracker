@@ -13,7 +13,7 @@ const routes: Routes = [
     component: OnboardComponent
   },
   {
-    path: '',
+    path: 'home',
     component: HomepageComponent,
     canActivate: [OnboardGuard]
   },
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'home'
   }
 ];
 

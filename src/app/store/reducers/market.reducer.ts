@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from "@ngrx/store";
 
 import * as MarketActions from '../actions/market.actions';
-import {Market} from "../../models/market";
+import {Market} from '../../models/market';
 
 export const initialState: Market[] = [];
 
