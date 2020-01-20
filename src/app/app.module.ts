@@ -8,7 +8,7 @@ import {FavoritesComponent} from './components/favorites/favorites.component';
 import {MatButtonModule} from "@angular/material/button";
 import {AppComponent} from './components/app/app.component';
 import {StoreModule} from "@ngrx/store";
-import {MarketReducer} from "./store/reducers/market.reducer";
+import {marketReducer} from "./store/reducers/market.reducer";
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
@@ -29,7 +29,7 @@ import {OnboardComponent} from "./components/onboard/onboard.component";
     MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
-    StoreModule.forRoot({assets: MarketReducer})
+    StoreModule.forRoot({markets: marketReducer})
   ],
   declarations: [
     AppComponent,

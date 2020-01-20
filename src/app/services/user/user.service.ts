@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {MarketSummary} from '../../models/marketSummary';
-import {MarketSet} from '../../store/actions/market.actions';
+import {marketSet} from '../../store/actions/market.actions';
 import {select, Store} from '@ngrx/store';
 import {Market} from '../../models/market';
 
@@ -9,20 +8,20 @@ import {Market} from '../../models/market';
   providedIn: 'root'
 })
 export class UserService {
-
   private userOnboardedSubject: BehaviorSubject<boolean>;
   public userOnboarded: Observable<boolean>;
+  public markets$: Observable<Market[]>;
 
-  constructor(private store: Store<{ assets: MarketSummary[] }>) {
+  constructor(private store: Store<{ markets: Market[] }>) {
     this.userOnboardedSubject = new BehaviorSubject<boolean>(false);
     this.userOnboarded = this.userOnboardedSubject.asObservable();
 
-    store.pipe(select('assets'));
+    this.markets$ = store.pipe(select('markets'));
   }
 
   hasOnboard(): Observable<boolean> {
     return this.store.select(favorites => {
-      if (favorites.assets == null || favorites.assets.length === 0) {
+      if (favorites.markets == null || favorites.markets.length === 0) {
         return false;
       }
 
@@ -30,9 +29,9 @@ export class UserService {
     });
   }
 
-  getFavorites(): Observable<MarketSummary[]> {
+  getFavorites(): Observable<Market[]> {
     return this.store.select(favorites => {
-      return favorites.assets;
+      return favorites.markets;
     });
   }
 
@@ -46,10 +45,11 @@ export class UserService {
       return false;
     }
 
-    this.store.dispatch(new MarketSet(favorites));
+    // this.store.dispatch(new marketSet(favorites));
+    this.store.dispatch(marketSet({payload: favorites}));
 
-    // Showing the list of stored assets;
-    // this.store.select(state => state.assets).subscribe(assets => console.log(assets)).unsubscribe();
+    // Showing the list of stored markets;
+    // this.store.select(state => state.markets).subscribe(markets => console.log(markets)).unsubscribe();
 
     // notify subscribers - user has been onboarded
     console.log('this.userOnboardedSubject.next(true)');

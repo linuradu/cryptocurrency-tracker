@@ -34,7 +34,7 @@ export class HomepageComponent implements OnInit {
       .subscribe(marketSummary => {
 
         // set the selection if the user has already been onboarded
-        this.userService.getFavorites().subscribe(favorites => {
+        this.userService.markets$.subscribe(favorites => {
           const favNames: string[] = favorites.map(fav => fav.marketName);
 
           // Processing the grid
